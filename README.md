@@ -1,7 +1,7 @@
 *NOTE*: Pull Requests will be approved and merged from 4th October onwards.
 
 # Hacktoberfest 2021
-[Hacktoberfest](https://hacktoberfest.digitalocean.com/) is a month-long celebration of open source software run by DigitalOcean in partnership with Dev and Intel.
+[Hacktoberfest](https://hacktoberfest.digitalocean.com/) is a month-long celebration of open source software run by DigitalOcean in partnership with appwrite, deepsource and Intel.
 
 - Hacktoberfest is open to everyone in our global community!
 - Four quality pull requests must be submitted to public GitHub repositories.
@@ -9,7 +9,7 @@
 - To qualify for the official limited edition Hacktoberfest shirt, you must register and make four pull requests (PRs) between October 1-31 (in any time zone). PRs can be made to any public repo on GitHub, not only the ones with issues labeled Hacktoberfest.
 - If a maintainer reports your pull request as spam or behavior not in line with the project’s code of conduct, you will be ineligible to participate.
 
-This is the repository for Hacktoberfest 2020 Meetup at NITK Surathkal organized by [Web Enthusiasts' Club NITK](https://github.com/WebClub-NITK), [IEEE NITK](https://github.com/IEEE-NITK) and [HackVerse NITK](https://hackverse.nitk.ac.in/).
+This is the repository for Hacktoberfest 2021 Meetup at NITK Surathkal organized by [Web Enthusiasts' Club NITK](https://github.com/WebClub-NITK), [IEEE NITK](https://github.com/IEEE-NITK) and [HackVerse NITK](https://hackverse.nitk.ac.in/).
 
 ### Contributing Guidelines
 - To get started, take a look at our [Contributing Guidelines](.github/CONTRIBUTING.md) for more information.
