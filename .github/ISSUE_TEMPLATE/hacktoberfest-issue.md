@@ -1,9 +1,9 @@
 ---
-Name: 'Hacktoberfest Issue'
-About: 'Issue for a Hacktoberfest task'
-Title: ''
-Labels: 'Hacktoberfest'
-Assignees: ''
+name: Hacktoberfest Issue
+about: Issue for a Hacktoberfest task
+title: ''
+labels: Hacktoberfest
+assignees: ''
 
 ---
 
