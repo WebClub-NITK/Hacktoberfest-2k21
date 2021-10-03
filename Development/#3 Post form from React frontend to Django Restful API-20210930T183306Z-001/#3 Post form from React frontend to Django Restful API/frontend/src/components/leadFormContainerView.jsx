@@ -18,7 +18,13 @@ class LeadFormContainerView extends Component {
     };
   }
 
-  handleSubmit() {}
+  handleSubmit() {
+    axios
+      .post("/api/leads/",this.state.lead)
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   handleFormChange(event, field) {
     const { lead } = this.state;
