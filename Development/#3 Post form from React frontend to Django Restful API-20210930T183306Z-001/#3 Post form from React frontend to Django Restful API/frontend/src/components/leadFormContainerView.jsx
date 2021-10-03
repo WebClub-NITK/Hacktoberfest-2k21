@@ -20,7 +20,7 @@ class LeadFormContainerView extends Component {
 
   handleSubmit() {
     axios
-      .post("/api/leads/",this.state.lead)
+      .post("/api/leads/", this.state.lead)
       .catch((err) => {
         console.log(err);
       });
