@@ -1,0 +1,131 @@
+#!/usr/bin/env python3
+# author: Shubhang Gupta (https://github.com/jarvis-1805)
+# Hill Cipher (Encryption & Decryption)
+
+import math
+import numpy
+import sympy
+
+ALPHABET = list('abcdefghijklmnopqrstuvwxyz')
+
+def modInverse(a, m):
+    a %= m
+    for i in range(1, m):
+        if (a * i) % m == 1:
+            return i
+    
+    return 1
+
+
+def key_matrix(key, n):
+    key = list(ALPHABET.index(i) for i in key)
+    matrix = numpy.array(key).reshape(int(n), int(n))
+    
+    if numpy.linalg.det(matrix) == 0:
+        print('Invalid Key!')
+        exit(0)
+
+    return matrix
+
+
+def key_matrixInv(keyMatrix, n):
+    keyMatrixInv = []
+    determinant = math.floor(numpy.linalg.det(keyMatrix))
+   
+    X = sympy.Matrix(keyMatrix)
+    X = (X.adjugate()*modInverse(determinant, 26))%26
+    X = numpy.array(X)
+    
+    for row in X:
+        temp = []
+        for column in row:
+            temp.append(column)
+        keyMatrixInv.append(temp)
+    
+    return keyMatrixInv
+
+
+def text_matrix(plaintext, n):
+    matrix = []
+    
+    if len(plaintext)%n != 0:
+        for _ in range(n - len(plaintext)%n):
+            plaintext += 'x'
+    
+    plaintext = list(ALPHABET.index(i) for i in plaintext)
+    i = 0
+    
+    for _ in range(len(plaintext)//n):
+        temp = []
+        for _ in range(n):
+            temp.append(plaintext[i])
+            i += 1
+        matrix.append(temp)
+    
+    return matrix
+
+
+def Hill_encrypt(plaintext, key, n):
+    plaintextMatrix = text_matrix(plaintext, n)
+    keyMatrix = key_matrix(key, n)
+    ciphertextMatrix = []
+    ciphertext = ''
+    keyMatrix = numpy.array(keyMatrix)
+    
+    for j in plaintextMatrix:
+        j = numpy.array(j)
+        product = numpy.dot(keyMatrix, j)
+        ciphertextMatrix.append(list(product))
+    
+    ciphertextMatrix = numpy.mod(ciphertextMatrix, 26)
+    
+    for i in ciphertextMatrix:
+        for j in i:
+            ciphertext += ALPHABET[int(j)]
+    
+    return ciphertext
+
+
+def Hill_decrypt(ciphertext, key, n):
+    ciphertextMatrix = text_matrix(ciphertext, n)
+    keyMatrix = key_matrix(key, n)
+    keyMatrixInv = key_matrixInv(keyMatrix, n)
+    plaintextMatrix = []
+    plaintext = ''
+    
+    for j in ciphertextMatrix:
+        j = numpy.array(j)
+        product = numpy.dot(keyMatrixInv, j)
+        plaintextMatrix.append(list(product))
+    
+    plaintextMatrix = numpy.mod(plaintextMatrix, 26)
+    
+    for i in plaintextMatrix:
+        for j in i:
+            plaintext += ALPHABET[int(j)]
+    
+    return plaintext
+
+
+if __name__ == '__main__':
+    print('---------- HILL CIPHER ----------')
+    print('1) Encryption\n2) Decryption')
+    choice = int(input('> '))
+    key = ''.join(input('> Enter the key: ').strip().lower().split())
+    n = math.sqrt(len(key))
+    
+    if n != math.trunc(n) or n == 0:
+        print('Invalid Key!')
+        exit(0)
+    
+    n = math.floor(n)
+    
+    if choice == 1:
+        plaintext = ''.join(input('> Enter the plaintext: ').strip().lower().split())
+        ciphertext = Hill_encrypt(plaintext, key, n)
+        print('Cipher text: ', ciphertext)
+    
+    if choice == 2:
+        ciphertext = ''.join(input('> Enter the ciphertext: ').strip().lower().split())
+        plaintext = Hill_decrypt(ciphertext, key, n)
+        print('Plain text: ', plaintext)
