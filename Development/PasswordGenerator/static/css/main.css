@@ -1,0 +1,206 @@
+/* 
+  ====================
+  Reset
+  ====================
+*/
+/* 
+  http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a:link, a:visited {
+  text-decoration: none;
+}
+
+
+/* 
+  ====================
+  Colors
+  ====================
+*/
+
+:root {
+    --blue: #017aff;
+    --red: #f34971;
+    --yellow: #f5c900;
+    --green: #aabb5d;
+    --neon: #6c47ff;
+    --tan: #cdad7a;
+    --aqua: #39c0c8;
+}
+
+
+/* 
+  ====================
+  Body
+  ====================
+*/
+
+body {
+    width: 80%;
+    margin: 10% auto;
+}
+
+
+/* 
+  ====================
+  Headers
+  ====================
+*/
+
+header {
+    display: grid;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 56px;
+    margin: 5% 0;
+    color: var(--red);
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+
+/* 
+  ====================
+  Form
+  ====================
+*/
+
+main {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+#input {
+    display: grid;
+    justify-content: center;
+    margin: 0;
+}
+
+#password-properties {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 24px;
+    font-style: italic;
+    justify-content: center;
+    column-gap: 3%;
+}
+#password-properties label {
+    margin: 3% 0;
+}
+
+#generate {
+    display: inline;
+    margin: auto;
+    margin-top: 15%;
+    width: auto;
+    background-color: transparent;
+    border: none;
+    color: var(--tan);
+    font-size: 28px;
+    border: var(--tan) solid 2px;
+    padding: 8px 44px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#generate:hover {
+    color: white;
+    background: var(--tan);
+}
+
+#length {
+    width: 100px;
+    height: 20px;
+    border: none;
+    font-size: 16px;
+    margin-left: 2%;
+}
+#length,
+#length:focus {
+    outline: none;
+    border: none;
+    border-bottom: var(--tan) solid 1px;
+}
+
+
+/* 
+  ====================
+  Password
+  ====================
+*/
+
+#password-details {
+    margin-top: 15%;
+}
+
+#password {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 36px;
+    margin-bottom: 20px;
+    width: 200px;
+}
+
+#copy {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+}
+#copy img {
+    width: 30px;
+    height: 30px;
+}
+#copy:hover {
+    background-color: lightgrey;
+}
+
+#strength {
+    font-size: 24px;
+}
